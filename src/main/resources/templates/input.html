@@ -1,0 +1,22 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert New Piano</title>
+</head>
+<body>
+<form th:object="${newPiano}" th:action="@{/update/{id}(id=${newPiano.serialNum})}" method=POST>
+	<h3>Piano Info</h3>
+	Serial Number: <input name="serialNum" size="10" th:field="*{serialNum}" type="hidden"> <br />
+	Number of Keys: <input name="numKeys" size="20" th:field="*{numKeys}"> <br />
+	Brand: <input name="brand" size="10" th:field="*{brand}"><br />
+	Electric? <input name="isElectric" type="checkbox" th:field="*{isElectric}"><br />
+	<h4>Bench Info</h4>
+	Legs: <input name="bench.legs" size="20" th:field="*{bench.legs}"><br />
+	Height (inches): <input name="bench.height" size="20" th:field="*{bench.height}"><br />
+	Shape:<input name="bench.shape" size="20" th:field="*{bench.shape}"><br />
+
+<input name="submit" type="submit" value="submit" />
+</form>
+<a href="viewAll">View all Contacts</a>
+</body>
+</html>

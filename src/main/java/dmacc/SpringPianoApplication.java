@@ -15,7 +15,7 @@ import dmacc.controller.*;
 import dmacc.repository.PianoRepository;
 
 @SpringBootApplication
-public class SpringPianoApplication implements CommandLineRunner {
+public class SpringPianoApplication  {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringPianoApplication.class, args);
@@ -27,9 +27,10 @@ public class SpringPianoApplication implements CommandLineRunner {
 				System.out.println(p.toString());*/
 	}
 	
-	@Autowired
-	PianoRepository repo;
+	//@Autowired
+	//PianoRepository repo;
 
+	/*
 	@Override
 	public void run(String... args) throws Exception {
 		ApplicationContext appContext = new AnnotationConfigApplicationContext(BeanConfiguration.class);
@@ -50,7 +51,7 @@ public class SpringPianoApplication implements CommandLineRunner {
 		//closes the ApplicationContext resource leak - not imperative to add but nice to clean it up
 		((AbstractApplicationContext) appContext).close();
 	
-	}
+	}*/
 
 
 }
