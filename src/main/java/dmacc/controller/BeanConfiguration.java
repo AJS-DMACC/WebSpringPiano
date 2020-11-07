@@ -12,7 +12,7 @@ public class BeanConfiguration {
 	@Bean
 	public Piano piano() {
 		Piano bean = new Piano();
-		bean.setIsElectric(true);
+		bean.setElectric(true);
 		bean.setBrand("Casio");
 		bean.setNumKeys(44);
 		bean.setSerialNum(514583487);
