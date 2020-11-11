@@ -16,7 +16,7 @@ public class WebController {
 	@Autowired
 	PianoRepository repo;
 
-	@GetMapping({ "/", "viewAll" })
+	@GetMapping( "viewAll" )
 	public String viewAllPianos(Model model) {
 		if(repo.findAll().isEmpty()) {
 			return addNewPiano(model);
@@ -26,7 +26,7 @@ public class WebController {
 		return "results";
 	}
 
-	@GetMapping("/inputPiano")
+	@GetMapping({ "/", "/inputPiano " })
 	public String addNewPiano(Model model) {
 		Piano p = new Piano();
 		model.addAttribute("newPiano", p);

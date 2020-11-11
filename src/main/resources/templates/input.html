@@ -2,14 +2,45 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert New Piano</title>
+<script> 
+function validateForm() {
+	
+  var numKeys = document.forms["pianoForm"]["numKeys"].value;
+  var brand = document.forms["pianoForm"]["brand"].value;
+  var Electric = document.forms["pianoForm"]["Electric"].value;
+  var legs = document.forms["pianoForm"]["bench.legs"].value;
+  var shape = document.forms["pianoForm"]["bench.shape"].value;
+  var height = document.forms["pianoForm"]["bench.height"].value;
+  
+  if (numKeys == "" || brand == "" || legs == "" || shape == "" || height == "" ) {
+    alert("All fields must be filled!");
+    return false;
+  }
+  if(numKeys <= 0 || numKeys > 88){
+	  alert("Keys must be between 1 and 88");
+	  return false;
+  }
+  if(legs < 3 || legs > 10){
+	  alert("Legs must be between 3 and 10");
+	  return false;
+  }
+  if(height <= 0 ){
+	  alert("height must be greater than 0");
+	  return false; 
+  }
+	  
+	alert("values: key:" + numKeys + " brand:" + brand + " electric:" + Electric);
+	return false;
+}
+</script>
 </head>
 <body>
-<form th:object="${newPiano}" th:action="@{/update/{id}(id=${newPiano.serialNum})}" method=POST>
+<form name="pianoForm" onsubmit="return validateForm()" th:object="${newPiano}" th:action="@{/update/{id}(id=${newPiano.serialNum})}" method=POST >
 	<h3>Piano Info</h3>
 	Serial Number: <input name="serialNum" size="10" th:field="*{serialNum}" type="hidden"> <br />
 	Number of Keys: <input name="numKeys" size="20" th:field="*{numKeys}"> <br />
 	Brand: <input name="brand" size="10" th:field="*{brand}"><br />
-	Electric? <input name="isElectric" type="checkbox" th:field="*{isElectric}"><br />
+	Electric? <input name="Electric" type="checkbox" th:field="*{Electric}"><br />
 	<h4>Bench Info</h4>
 	Legs: <input name="bench.legs" size="20" th:field="*{bench.legs}"><br />
 	Height (inches): <input name="bench.height" size="20" th:field="*{bench.height}"><br />
